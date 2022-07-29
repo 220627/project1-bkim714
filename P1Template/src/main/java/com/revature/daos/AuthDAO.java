@@ -19,11 +19,11 @@ public class AuthDAO {
 		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
-			String sql = "select * from users where username = ? and password = ?;";
+			String sql = "select * from ers_users where ers_username = ? and ers_password = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setString(1,  username);  
+			ps.setString(1, username);  
 			ps.setString(2, password);
 			
 			ResultSet rs = ps.executeQuery();
@@ -32,13 +32,13 @@ public class AuthDAO {
 			if(rs.next()) {
 
 				Users u = new Users(
-						rs.getInt("user_id"),
-						rs.getString("username"),
-						rs.getString("password")
+						rs.getInt("ers_users_id"),
+						rs.getString("ers_username"),
+						rs.getString("ers_password")
 						);
 				return u;
 				
-				//nmotice we're returning a password here...probably not best practice lol
+				//notice we're returning a password here...probably not best practice lol
 				//in a REAL application, you'd probably not want to send that back
 			}
 			

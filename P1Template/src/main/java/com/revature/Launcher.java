@@ -1,5 +1,13 @@
 package com.revature;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import com.revature.controllers.AuthController;
+import com.revature.utils.ConnectionUtil;
+
+import io.javalin.Javalin;
+
 public class Launcher {
 
 	public static void main(String[] args) {
@@ -22,6 +30,25 @@ public class Launcher {
 //          /,    /`
 //          \\"--\\
 		
+		//Test Database connection
+		try(Connection conn = ConnectionUtil.getConnection()){
+			System.out.println("CONNECTION SUCCESSFUL :)");
+		} catch (SQLException e) {
+			System.out.println("connection failed...");
+			e.printStackTrace();
+		}
+		
+		
+		//Test/Create Front End connection
+		Javalin app = Javalin.create(
+				config -> {
+					config.enableCorsForAllOrigins();
+				}
+				).start(3000);
+		
+		
+		AuthController ac = new AuthController();
+		app.post("/login", ac.loginHandler);
 	}
 	
 }
