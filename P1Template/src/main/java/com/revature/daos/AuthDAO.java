@@ -35,6 +35,8 @@ public class AuthDAO {
 						rs.getInt("ers_users_id"),
 						rs.getString("ers_username"),
 						rs.getString("ers_password")
+						
+						
 						);
 				return u;
 				

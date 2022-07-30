@@ -18,6 +18,13 @@ public class Users {
 //		this.role = role;
 //	}
 
+	public Users(int user_id, String username, String password) {  //might not need this later
+		super();
+		this.user_id = user_id;
+		this.username = username;
+		this.password = password;
+	}
+
 
 	public Users(int user_id, String username, String password, String first_name, String last_name, String email,
 			int role_id_fk, UserRoles role) {
@@ -32,7 +39,6 @@ public class Users {
 		this.role = role;
 	}
 
-	
 
 
 	public Users(String username, String password, String first_name, String last_name, String email, int role_id_fk) {
