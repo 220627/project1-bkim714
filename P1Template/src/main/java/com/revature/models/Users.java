@@ -11,12 +11,7 @@ public class Users {
 	private int role_id_fk;
 	private UserRoles role;
 	
-//	public UserRoles getRole() {
-//		return role;
-//	}
-//	public void setRole(UserRoles role) {
-//		this.role = role;
-//	}
+	
 
 	public Users(int user_id, String username, String password) {  //might not need this later
 		super();
