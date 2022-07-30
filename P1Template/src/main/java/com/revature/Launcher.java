@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import com.revature.controllers.AuthController;
+import com.revature.controllers.ReimbController;
 import com.revature.utils.ConnectionUtil;
 
 import io.javalin.Javalin;
@@ -46,9 +47,15 @@ public class Launcher {
 				}
 				).start(3000);
 		
-		
+		ReimbController rc = new ReimbController();
 		AuthController ac = new AuthController();
+		
 		app.post("/login", ac.loginHandler);
+		app.post("/submit", rc.submitReimbHandler);
+		app.get("/view", rc.viewReimbHandler);
+		app.put("/status", rc.updateStatusController);
+		
+		
 	}
 	
 }

@@ -45,6 +45,8 @@ public class AuthController {
 			log.info("User Logged In!");
 			
 			ses = ctx.req.getSession();  //this is how we create new sessions
+			ses.setAttribute("current_user", user);  //testing ses
+			System.out.println(ses.getAttribute("current_user").toString());
 			
 			String userJSON = gson.toJson(user);
 			

@@ -53,12 +53,12 @@ public class Reimbursement {
 	}
 
 
-	public Reimbursement(int reimb_id, int amount, Timestamp submitted) {
-		super();
-		this.reimb_id = reimb_id;
-		this.amount = amount;
-		this.submitted = submitted;
-	}
+//	public Reimbursement(int reimb_id, int amount, Timestamp submitted) {
+//		super();
+//		this.reimb_id = reimb_id;
+//		this.amount = amount;
+//		this.submitted = submitted;
+//	}
 
 
 	@Override
