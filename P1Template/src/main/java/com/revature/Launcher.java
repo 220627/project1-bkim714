@@ -57,5 +57,6 @@ public class Launcher {
 		
 		
 	}
+	//public static Logger log = LogManager.getLogger();
 	
 }

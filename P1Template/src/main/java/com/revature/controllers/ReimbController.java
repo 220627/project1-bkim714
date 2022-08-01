@@ -20,7 +20,7 @@ public class ReimbController {
 		AuthController.ses = ctx.req.getSession();
 
 		Users b = (Users) AuthController.ses.getAttribute("current_user"); // test string
-		if (rDAO.submitReimb(newReimb, b)) {
+		if (rDAO.submitReimb(newReimb)) {
 			ctx.status(202);
 		} else {
 			ctx.status(406);

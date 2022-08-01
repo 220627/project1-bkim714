@@ -21,7 +21,7 @@ public class AuthController {
 	AuthService as= new AuthService();
 	
 	//empty HttpSession object that will be filled upon successful login
-	static HttpSession ses;
+	public static HttpSession ses;
 	
 	//we need a loginHandler to take in Login Data, make a LoginDTO, and sendd it to the service
 	//if login is successful, the service sends back a String which we use in our return (ctx.result())
@@ -47,7 +47,8 @@ public class AuthController {
 			ses = ctx.req.getSession();  //this is how we create new sessions
 			ses.setAttribute("current_user", user);  //testing ses
 			System.out.println(ses.getAttribute("current_user").toString());
-			
+			ses.setAttribute("userId", user.getUser_id());
+            //ses.setAttribute("userRole", user.getRole().getRole_id());
 			String userJSON = gson.toJson(user);
 			
 			ctx.result(userJSON);

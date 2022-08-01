@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page</title>
+</head>
+<body>
+    <h2 id="header">Employee Reimbursement</h2>
+    <br>
+    <input type="number" id="userAmount" placeholder="Reimbursement Amount">
+    <input type="number" id="userType" placeholder="Reimbursement Type">
+    <button id="btn">Submit</button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h2 id="header2">View Past Reimbursements</h2>
+    <br>
+    
+    <button id="btn2">View</button>
+    <br>
+    <br>
+    <table class="table" border = '1' style="border-collapse:collapse">
+        <thead>
+          <tr>
+            <th style="padding:5px">Amount</th>
+            <th style="padding:5px">Status</th>
+            <th style="padding:5px">Type</th>
+          </tr>
+        </thead>
+        <tbody id="append">
+         
+        </tbody>
+      </table>
+    
+    <script src="Employee.js"></script>
+    
+</body>
+</html>

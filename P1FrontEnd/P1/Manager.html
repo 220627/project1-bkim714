@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager</title>
+</head>
+<body>
+    <h2 id="header">Approve/Deny</h2>
+    <br>
+    <input type="number" id="userId" placeholder="Reimb ID">
+    <input type="number" id="userType" placeholder="1 for Approve 2 for Deny">
+    <button id="btn">Submit</button>
+    <br>
+    <br>
+
+    <h2 id="header2">View Past Reimbursements</h2>
+    <br>
+    
+    <button id="btn2">View</button>
+    <br>
+    <br>
+    <table class="table" border = '1' style="border-collapse:collapse">
+        <thead>
+          <tr>
+            <th style="padding:5px">Amount</th>
+            <th style="padding:5px">Status</th>
+            <th style="padding:5px">Type</th>
+          </tr>
+        </thead>
+        <tbody id="append">
+         
+        </tbody>
+      </table>
+    <script src="Manager.js"></script>
+    
+</body>
+</html>

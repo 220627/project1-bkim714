@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import com.revature.controllers.AuthController;
 import com.revature.models.Reimbursement;
 import com.revature.models.Users;
 import com.revature.utils.ConnectionUtil;
@@ -16,19 +17,19 @@ public class ReimbDAO {
 
 	// int amount, Timestamp submitted, int type_id_fk
 
-	public boolean submitReimb(Reimbursement reimbursement, Users b) {
+	public boolean submitReimb(Reimbursement reimbursement) {
 
 		try (Connection conn = ConnectionUtil.getConnection()) {
 
-			System.out.println(b.getUser_id());
-
+			Object userId = AuthController.ses.getAttribute("userId");
+			Integer author = Integer.parseInt(userId.toString());
 			String sql = "insert into ers_reimbursement (reimb_amount, reimb_submitted, reimb_type_id, reimb_author) values (?, now(), ?, ?);";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			System.out.println(reimbursement.getAmount());
 			ps.setInt(1, reimbursement.getAmount());
 			ps.setInt(2, reimbursement.getType_id_fk());
-			ps.setInt(3, b.getUser_id());
+			ps.setInt(3, author);
 
 			ps.executeUpdate();
 
