@@ -5,13 +5,9 @@ let reamount = document.getElementById("reamount");
 let restatus = document.getElementById("restatus");
 let reid = document.getElementById("reid");
 
-//when the user clicks the button, execute the fetchData function
+
 document.getElementById("btn").onclick = submitFunction
 document.getElementById("btn2").onclick = viewFunction
-//this is a cleaner way to add an event listener to an element
-
-//compare this function to the ajaxFunc() in HelloAjax...this is much cleaner
-
 
 
  async function submitFunction(){
@@ -33,13 +29,11 @@ document.getElementById("btn2").onclick = viewFunction
     
     let response = await fetch(url + "/submit", post) 
     console.log(response)
-    //now we need to check if the promise returned successfully
+    
     if(response.status === 202) {
-        let data = await response.json() //turn the JSON data into JS
+        let data = await response.json() 
         console.log(data);
         document.getElementById("header").innerHTML = "Submit Successful"
-        
-
         } else {
             document.getElementById("header").innerHTML = "Did Not Submit"
         }
@@ -48,25 +42,19 @@ document.getElementById("btn2").onclick = viewFunction
 
 
 
-
-
 async function viewFunction() {
-
-   
- 
 
     let response = await fetch(url + "/view");
     
     if(response.status === 200) {
-        let data = await response.json() //turn the JSON data into JS
+        let data = await response.json() 
         
-        renderHTML(data)  //send it to the renderHTML() function to get rendered
+        renderHTML(data) 
         
     } else {
         document.getElementById("header").innerHTML = "Something Went Wrong"
     }
 
-    //this function will manipulate the DOM based on the user's input & response from the server
     function renderHTML(data) {
 
         for (let x of data) {
@@ -74,12 +62,15 @@ async function viewFunction() {
             let cell = document.createElement("td");
             let cell2 = document.createElement("td");
             let cell3 = document.createElement("td");
+            let cell4 = document.createElement("td");
             cell.innerHTML = x.amount
             row.appendChild (cell) 
             cell2.innerHTML = x.status_id_fk
             row.appendChild(cell2)
             cell3.innerHTML = x.type_id_fk
             row.appendChild (cell3)
+            cell4.innerHTML = x.submitted
+            row.appendChild (cell4)
             console.log(x)
             // reamount.innerHTML = x.amount
             // restatus.innerText = x.status_id_fk

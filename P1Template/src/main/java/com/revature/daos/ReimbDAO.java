@@ -30,7 +30,7 @@ public class ReimbDAO {
 			ps.setInt(1, reimbursement.getAmount());
 			ps.setInt(2, reimbursement.getType_id_fk());
 			ps.setInt(3, author);
-
+			
 			ps.executeUpdate();
 
 			System.out.println("Request Successfully Submitted!");
@@ -56,7 +56,7 @@ public class ReimbDAO {
 			ArrayList<Reimbursement> reimbList = new ArrayList<>();
 			while (rs.next()) {
 
-				Reimbursement reimb = new Reimbursement(rs.getInt("reimb_id"), rs.getInt("reimb_amount"), null,
+				Reimbursement reimb = new Reimbursement(rs.getInt("reimb_id"), rs.getInt("reimb_amount"), rs.getTimestamp("reimb_submitted"),
 						rs.getInt("reimb_author"), rs.getInt("reimb_resolver"), rs.getInt("reimb_status_id"),
 						rs.getInt("reimb_type_id")
 

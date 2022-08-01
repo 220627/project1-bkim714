@@ -63,12 +63,23 @@ async function viewFunction() {
             let cell = document.createElement("td");
             let cell2 = document.createElement("td");
             let cell3 = document.createElement("td");
-            cell.innerHTML = x.amount
-            row.appendChild (cell) 
-            cell2.innerHTML = x.status_id_fk
-            row.appendChild(cell2)
-            cell3.innerHTML = x.type_id_fk
-            row.appendChild (cell3)
+            let cell4 = document.createElement("td");
+            let cell5 = document.createElement("td");
+            if(x.author_fk === 2){
+             s = "Ben P."
+            ss = "General Principle"
+            cell.innerHTML = s
+            row.appendChild (cell)
+            cell2.innerHTML = x.amount
+            row.appendChild (cell2) 
+            cell3.innerHTML = x.status_id_fk
+            row.appendChild(cell3)
+            cell4.innerHTML = x.type_id_fk
+            row.appendChild (cell4)
+            cell5.innerHTML = x.reimb_id
+            row.appendChild (cell5)
+            }
+                
             console.log(x)
             // reamount.innerHTML = x.amount
             // restatus.innerText = x.status_id_fk

@@ -5,34 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manager</title>
+
+    <link rel="stylesheet" href="Manager.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
 </head>
 <body>
-    <h2 id="header">Approve/Deny</h2>
+    
     <br>
-    <input type="number" id="userId" placeholder="Reimb ID">
-    <input type="number" id="userType" placeholder="1 for Approve 2 for Deny">
-    <button id="btn">Submit</button>
     <br>
     <br>
 
-    <h2 id="header2">View Past Reimbursements</h2>
-    <br>
-    
+    <h2 id="header2" style="font-weight: bold">View Past/Pending Reimbursements</h2>
+    <label for="userAmoun"></label>
+
+    <select name="userAmoun" id="userNull">
+      <option value="null">Employee Name:</option>
+      <option value="2">Ben P.</option>
+      <option value="null">Adam G.</option>
+      <option value="null">Ellie A.</option>
+      
+    </select> 
     <button id="btn2">View</button>
     <br>
     <br>
     <table class="table" border = '1' style="border-collapse:collapse">
         <thead>
           <tr>
+            <th style="padding:5px">Name</th>
             <th style="padding:5px">Amount</th>
             <th style="padding:5px">Status</th>
             <th style="padding:5px">Type</th>
+            <th style="padding:5px">Reimbursement ID</th>
           </tr>
         </thead>
         <tbody id="append">
          
         </tbody>
       </table>
+
+      <h2 id="header" style="font-weight: bold">Approve/Deny Claims:</h2>
+    <br>
+    
+    <input type="number" id="userId" placeholder="Reimbursement ID#">
+   <!--<input type="number" id="userType" placeholder="Approve/Deny"> -->
+   <label for="userAmoun">Status:</label>
+
+   <select name="userAmoun" id="userType">
+     <option value="null">Approve/Deny:</option>
+     <option value="1">Approve</option>
+     <option value="2">Deny</option>
+     
+     
+   </select> 
+    <button id="btn">Submit</button>
+    <br>
+    <br>
+    <br>
     <script src="Manager.js"></script>
     
 </body>
