@@ -67,18 +67,32 @@ async function viewFunction() {
             let cell5 = document.createElement("td");
             if(x.author_fk === 2){
              s = "Ben P."
-            ss = "General Principle"
+            } else{
+                s = "Null"
+            }
+            if (x.status_id_fk === 1){
+                b = "Approved"
+            } else if(x.status_id_fk === 2) {
+                b = "Denied"
+            } else {
+                b = "Pending"
+            }
+            if (x.type_id_fk === 1){
+                c = "General Principle"
+            } else {
+                c = "Boss Hog Outlaw"
+            }
             cell.innerHTML = s
             row.appendChild (cell)
             cell2.innerHTML = x.amount
             row.appendChild (cell2) 
-            cell3.innerHTML = x.status_id_fk
+            cell3.innerHTML = b
             row.appendChild(cell3)
-            cell4.innerHTML = x.type_id_fk
+            cell4.innerHTML = c
             row.appendChild (cell4)
             cell5.innerHTML = x.reimb_id
             row.appendChild (cell5)
-            }
+            
                 
             console.log(x)
             // reamount.innerHTML = x.amount

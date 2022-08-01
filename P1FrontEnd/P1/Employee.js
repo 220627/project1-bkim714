@@ -63,11 +63,24 @@ async function viewFunction() {
             let cell2 = document.createElement("td");
             let cell3 = document.createElement("td");
             let cell4 = document.createElement("td");
+            if(x.type_id_fk === 1){
+                a = "General Principle"
+            } else {
+                a = "Boss Hog Outlaw"
+            }
+            if(x.status_id_fk === 1){
+                b = "Approved"
+            }else if (x.status_id_fk === 2) {
+                b = "Denied"
+            } else {
+                b = "Pending"
+            }
+            
             cell.innerHTML = x.amount
             row.appendChild (cell) 
-            cell2.innerHTML = x.status_id_fk
+            cell2.innerHTML = b
             row.appendChild(cell2)
-            cell3.innerHTML = x.type_id_fk
+            cell3.innerHTML = a
             row.appendChild (cell3)
             cell4.innerHTML = x.submitted
             row.appendChild (cell4)
